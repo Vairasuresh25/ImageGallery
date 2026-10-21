@@ -26,7 +26,14 @@ sign.addEventListener("click", async () => {
         email: emailValue,
         password: encrypt(password.value)
     };
-    await createUserFolder(emailValue);
+    try {
+        const result = await createUserFolder(email.value);
+        console.log(result);
+        alert("User folder created!");
+    } catch (error) {
+        console.error(error);
+        alert(error.message);
+    }
     emails.push(emailValue);
     users.push(user);
     localStorage.setItem("users", JSON.stringify(users));
