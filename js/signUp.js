@@ -42,3 +42,28 @@ function encrypt(password) {
     }
     return result;
 }
+async function createUserFolder(email) {
+    const username = "Vairasuresh25";
+    const repository = "ImageGallery";
+    const safeEmail = encodeURIComponent(email.trim().toLowerCase());
+    const filePath = `users/${safeEmail}/profile.json`;
+    const response = await fetch(
+        `https://api.github.com/repos/${username}/${repository}/contents/${filePath}`,
+        {
+            method: "PUT",
+            headers: {
+                "Accept": "application/vnd.github+json",
+                "Authorization": `Bearer ${GITHUB_TOKEN}`,
+                "X-GitHub-Api-Version": "2022-11-28"
+            },
+            body: JSON.stringify({
+                message: `Create profile for ${email}`,
+                content: btoa(JSON.stringify({ email }))
+            })
+        }
+    );
+    if (!response.ok) {
+        throw new Error(await response.text());
+    }
+    return await response.json();
+}
