@@ -33,6 +33,7 @@ cancel.addEventListener("click", ()=>{
     document.querySelector("footer").style.filter = "none";
 });
 let uploadImage = document.querySelector(".image-upload");
+const WORKER_URL = "https://image-gallery-api.vairasuresh25t.workers.dev/";
 uploadImage.addEventListener("click", ()=>{
     let imageSrc = document.querySelector(".file input");
     let imageName = document.querySelector(".image-name input");
@@ -55,17 +56,61 @@ uploadImage.addEventListener("click", ()=>{
         category : imageCategory.value,
         favorite : false
     };
-    allImages.unshift(image);
-    localStorage.setItem(user.email,JSON.stringify(allImages));
-    imageSrc.value = "";
-    imageName.value = "";
-    imageCategory.value = "";
-    document.querySelector(".upload-form").style.display = "none";
-    document.querySelector("header").style.filter = "none";
-    document.querySelector("main").style.filter = "none";
-    document.querySelector("footer").style.filter = "none";
-    showImages(allImages);
+    try {
+        const base64 = await fileToBase64(file);
+        const response = await fetch(WORKER_URL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                action: "uploadImage",
+                email: user.email,
+                fileName: image.src,
+                contentBase64: base64
+            })
+        });
+        const result = await response.json();
+        if (!response.ok) {
+            throw new Error(
+                result.details ||
+                result.error ||
+                "Could not upload the image."
+            );
+        }
+        allImages.unshift(image);
+        localStorage.setItem(user.email,JSON.stringify(allImages));
+        imageSrc.value = "";
+        imageName.value = "";
+        imageCategory.value = "";
+        document.querySelector(".upload-form").style.display = "none";
+        document.querySelector("header").style.filter = "none";
+        document.querySelector("main").style.filter = "none";
+        document.querySelector("footer").style.filter = "none";
+        showImages(allImages);
+    } catch (error) {
+        console.error("Image upload failed:", error);
+        alert("Upload failed: " + error.message);
+    } finally {
+        uploadImage.disabled = false;
+        uploadImage.textContent = originalButtonText;
+    }
 });
+function fileToBase64(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+
+        reader.onload = () => {
+            resolve(reader.result.split(",")[1]);
+        };
+
+        reader.onerror = () => {
+            reject(new Error("Unable to read the selected image."));
+        };
+
+        reader.readAsDataURL(file);
+    });
+}
 let imageDiv = document.querySelector(".images div");
 function saveImages() {
     localStorage.setItem(user.email, JSON.stringify(allImages));
