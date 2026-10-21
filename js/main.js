@@ -1,4 +1,4 @@
-if (localStorage.getItem("sign") == "false"){
+if (localStorage.getItem("sign") == "false" || localStorage.getItem("sign") == null){
     window.location.href = "html/signIn.html";
 }
 let user = JSON.parse(localStorage.getItem("user"));
