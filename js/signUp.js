@@ -33,6 +33,7 @@ sign.addEventListener("click", async () => {
     } catch (error) {
         console.error(error);
         alert(error.message);
+        return;
     }
     emails.push(emailValue);
     users.push(user);
