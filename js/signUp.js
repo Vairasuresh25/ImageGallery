@@ -9,7 +9,7 @@ let email = document.querySelector(".email input");
 let password = document.querySelector(".password input");
 let confirmPassword = document.querySelector(".confirm input");
 let sign = document.querySelector("form button");
-sign.addEventListener("click", () => {
+sign.addEventListener("click", async () => {
     if (password.value !== confirmPassword.value) {
         alert("Passwords do not match!");
         return;
@@ -26,6 +26,7 @@ sign.addEventListener("click", () => {
         email: emailValue,
         password: encrypt(password.value)
     };
+    await createUserFolder(emailValue);
     emails.push(emailValue);
     users.push(user);
     localStorage.setItem("users", JSON.stringify(users));
@@ -43,27 +44,19 @@ function encrypt(password) {
     return result;
 }
 async function createUserFolder(email) {
-    const username = "Vairasuresh25";
-    const repository = "ImageGallery";
-    const safeEmail = encodeURIComponent(email.trim().toLowerCase());
-    const filePath = `users/${safeEmail}/profile.json`;
     const response = await fetch(
-        `https://api.github.com/repos/${username}/${repository}/contents/${filePath}`,
+        "https://image-gallery-api.vairasuresh25t.workers.dev/",
         {
-            method: "PUT",
+            method: "POST",
             headers: {
-                "Accept": "application/vnd.github+json",
-                "Authorization": `Bearer ${GITHUB_TOKEN}`,
-                "X-GitHub-Api-Version": "2022-11-28"
+                "Content-Type": "application/json"
             },
-            body: JSON.stringify({
-                message: `Create profile for ${email}`,
-                content: btoa(JSON.stringify({ email }))
-            })
+            body: JSON.stringify({ email })
         }
     );
+    const result = await response.json();
     if (!response.ok) {
-        throw new Error(await response.text());
+        throw new Error(result.error || "Could not create user folder");
     }
-    return await response.json();
+    return result;
 }
