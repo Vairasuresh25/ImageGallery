@@ -9,8 +9,7 @@ let email = document.querySelector(".email input");
 let password = document.querySelector(".password input");
 let confirmPassword = document.querySelector(".confirm input");
 let sign = document.querySelector("form button");
-sign.addEventListener("click", async (event) => {
-    event.preventDefault();
+sign.addEventListener("click", async () => {
     if (password.value !== confirmPassword.value) {
         alert("Passwords do not match!");
         return;
