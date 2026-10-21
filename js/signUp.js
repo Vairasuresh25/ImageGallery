@@ -65,7 +65,13 @@ async function createUserFolder(email) {
     );
     const result = await response.json();
     if (!response.ok) {
-        throw new Error(result.error || "Could not create user folder");
+        console.error("Worker error:", result);
+        console.error("GitHub status:", result.githubStatus);
+        console.error("GitHub details:", result.details);
+        throw new Error(
+            `GitHub status: ${result.githubStatus || response.status}. ` +
+            `${result.details || result.error || "Unknown error"}`
+        );
     }
     return result;
 }
