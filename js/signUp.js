@@ -64,6 +64,7 @@ async function createUserFolder(email) {
         }
     );
     const result = await response.json();
+    console.log("Worker response:", result);
     if (!response.ok) {
         console.error("Worker error:", result);
         console.error("GitHub status:", result.githubStatus);
