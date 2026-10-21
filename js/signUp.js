@@ -30,17 +30,17 @@ sign.addEventListener("click", async () => {
         const result = await createUserFolder(email.value);
         console.log(result);
         alert("User folder created!");
+        emails.push(emailValue);
+        users.push(user);
+        localStorage.setItem("users", JSON.stringify(users));
+        localStorage.setItem("emails", JSON.stringify(emails));
+        alert("Account created! Please sign in.");
+        window.location.href = "signIn.html";
     } catch (error) {
         console.error(error);
         alert(error.message);
         return;
     }
-    emails.push(emailValue);
-    users.push(user);
-    localStorage.setItem("users", JSON.stringify(users));
-    localStorage.setItem("emails", JSON.stringify(emails));
-    alert("Account created! Please sign in.");
-    window.location.href = "signIn.html";
 });
 
 function encrypt(password) {
