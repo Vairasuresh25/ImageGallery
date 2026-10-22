@@ -208,7 +208,7 @@ function previous(){
         index=current.length-1;
     }
     previewImgName.textContent = current[index].name;
-    document.querySelector(".preview-img").style.backgroundImage = `url("https://vairasuresh25.github.io/ImageGallery/users/${user.email}/${current[index].src}")`;
+    document.querySelector(".preview-img").style.backgroundImage = `url("https://vairasuresh25.github.io/ImageGallery/users/${encodeURIComponent(user.email)}/${encodeURIComponent(current[i].src)}")`;
 }
 let nextBtn = document.querySelector(".next");
 nextBtn.addEventListener("click",next);
@@ -218,7 +218,7 @@ function next(){
         index=current.length%index;
     }
     previewImgName.textContent = current[index].name;
-    document.querySelector(".preview-img").style.backgroundImage = `url("https://vairasuresh25.github.io/ImageGallery/users/${user.email}/${current[index].src}")`;
+    document.querySelector(".preview-img").style.backgroundImage = `url("https://vairasuresh25.github.io/ImageGallery/users/${encodeURIComponent(user.email)}/${encodeURIComponent(current[i].src)}")`;
 }
 let closeBtn = document.querySelector(".close");
 closeBtn.addEventListener("click",()=>{
@@ -241,7 +241,7 @@ function lightPrevious(){
         index=current.length-1;
     }
     lightImgName.textContent = current[index].name;
-    document.querySelector(".light-img").style.backgroundImage = `url("https://vairasuresh25.github.io/ImageGallery/users/${user.email}/${current[index].src}")`;
+    document.querySelector(".light-img").style.backgroundImage = `url("https://vairasuresh25.github.io/ImageGallery/users/${encodeURIComponent(user.email)}/${encodeURIComponent(current[i].src)}")`;
 }
 let lightNextBtn = document.querySelector(".light-next");
 lightNextBtn.addEventListener("click",lightNext);
@@ -251,7 +251,7 @@ function lightNext(){
         index=current.length%index;
     }
     lightImgName.textContent = current[index].name;
-    document.querySelector(".light-img").style.backgroundImage = `url("https://vairasuresh25.github.io/ImageGallery/users/${user.email}/${current[index].src}")`;
+    document.querySelector(".light-img").style.backgroundImage = `url("https://vairasuresh25.github.io/ImageGallery/users/${encodeURIComponent(user.email)}/${encodeURIComponent(current[i].src)}")`;
 }
 let lightCloseBtn = document.querySelector(".light-close");
 lightCloseBtn.addEventListener("click",()=>{
