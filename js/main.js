@@ -123,7 +123,7 @@ function showImages(images){
         for (let i = 0; i < images.length; i++){
             let imageBox = document.createElement("div");
             imageBox.classList.add("img");
-            imageBox.style.backgroundImage = `url("https://vairasuresh25.github.io/ImageGallery/users/${user.email}/${images[i].src}")`;
+            imageBox.style.backgroundImage = `url("https://vairasuresh25.github.io/ImageGallery/users/${encodeURIComponent(user.email)}/${encodeURIComponent(images[i]).src}")`;
             imageBox.addEventListener("mouseover", ()=>{
                 btnDiv.style.display = "flex";
             });
