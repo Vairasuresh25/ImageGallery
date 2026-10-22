@@ -121,9 +121,11 @@ function showImages(images){
     if (images.length > 0){
         imageDiv.innerHTML = "";
         for (let i = 0; i < images.length; i++){
+            console.log("Image object:", images[i]);
+            console.log("Image source:", images[i].src);
             let imageBox = document.createElement("div");
             imageBox.classList.add("img");
-            const imageUrl = `https://vairasuresh25.github.io/ImageGallery/users/${encodeURIComponent(user.email)}/${encodeURIComponent(images[i].src)}`;
+            let imageUrl = `https://vairasuresh25.github.io/ImageGallery/users/${encodeURIComponent(user.email)}/${encodeURIComponent(images[i].src)}`;
             imageBox.style.backgroundImage = `url("${imageUrl}")`;
             imageBox.addEventListener("mouseover", ()=>{
                 btnDiv.style.display = "flex";
@@ -138,7 +140,8 @@ function showImages(images){
                     index = images.findIndex((image)=>image.name == displayImgName);
                     document.querySelector(".preview-box").style.display = "block";
                     previewImgName.textContent = images[i].name;
-                    document.querySelector(".preview-img").style.backgroundImage = `url("https://vairasuresh25.github.io/ImageGallery/users/${user.email}/${images[index].src}")`;
+                    let previewUrl = `https://vairasuresh25.github.io/ImageGallery/users/${encodeURIComponent(user.email)}/${encodeURIComponent(images[index].src)}`;
+                    document.querySelector(".preview-img").style.backgroundImage = `url("${previewUrl}")`;
                 }
                 if (event.target.classList.contains("light-box-btn")){
                     document.addEventListener("keydown",lightKeyEvent);
@@ -146,13 +149,15 @@ function showImages(images){
                     index = images.findIndex((image)=>image.name == displayImgName);
                     document.querySelector(".light-box-box").style.display = "block";
                     lightImgName.textContent = images[i].name;
-                    document.querySelector(".light-img").style.backgroundImage = `url("https://vairasuresh25.github.io/ImageGallery/users/${user.email}/${images[index].src}")`;
+                    let lightUrl = `https://vairasuresh25.github.io/ImageGallery/users/${encodeURIComponent(user.email)}/${encodeURIComponent(images[index].src)}`;
+                    document.querySelector(".light-img").style.backgroundImage = `url("${lightUrl}")`;
                     let bottomBox = document.querySelector(".bottom-box");
                     bottomBox.innerHTML = "";
                     for (let i = 0; i < images.length; i++){
                         let smallBox = document.createElement("div");
                         smallBox.classList.add("small-box");
-                        smallBox.style.backgroundImage = `url("https://vairasuresh25.github.io/ImageGallery/users/${user.email}/${images[i].src}")`;
+                        let smallUrl = `https://vairasuresh25.github.io/ImageGallery/users/${encodeURIComponent(user.email)}/${encodeURIComponent(images[i].src)}`;
+                        smallBox.style.backgroundImage = `url("${smallUrl}")`;
                         bottomBox.append(smallBox);
                     }
                 }
