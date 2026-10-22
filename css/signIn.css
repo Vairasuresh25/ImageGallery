@@ -7,10 +7,10 @@ body{
     font-family: "Inter", sans-serif;
 }
 .main{
-    width: 40vw;
-    height: 60vh;
+    width: 50vw;
+    height: 70vh;
     margin: 0 auto;
-    margin-top: 125px;
+    margin-top: 100px;
     background-color: #ffffffff;
     border-radius: 20px;
     border: 1px solid #62dafbff;
@@ -77,7 +77,7 @@ main{
     height: 70%;
     width: 90%;
     margin: 0 auto;
-    margin-top: 20px;
+    margin-top: 30px;
     display: flex;
     background-color: rgb(234, 238, 254);
     border-radius: 10px;
@@ -108,13 +108,13 @@ main .image{
 }
 form p{
     font-size: 14px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 .form div{
     width: 100%;
     text-align: left;
     position: relative;
-    margin-top: 5px;
+    margin-top: 15px;
 }
 .form input{
     width: 100%;
