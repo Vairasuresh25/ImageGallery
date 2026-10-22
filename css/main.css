@@ -73,6 +73,9 @@ nav li:hover{
     color: #223F32;
     background-color: #62dafbff;
 }
+.sign{
+    cursor: pointer;
+}
 .top{
     width: 100%;
     height: 200px;
