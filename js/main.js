@@ -36,6 +36,7 @@ let uploadImage = document.querySelector(".image-upload");
 const WORKER_URL = "https://image-gallery-api.vairasuresh25t.workers.dev/";
 uploadImage.addEventListener("click", async ()=>{
     let imageSrc = document.querySelector(".file input");
+    let file = imageSrc.files[0];
     let imageName = document.querySelector(".image-name input");
     let imageCategory = document.querySelector(".category-list select");
     if (imageSrc.value === ""){
@@ -51,13 +52,13 @@ uploadImage.addEventListener("click", async ()=>{
         return;
     }
     let image = {
-        src : `${imageSrc.value.split("\\").pop()}`,
+        src : file.name,
         name : imageName.value,
         category : imageCategory.value,
         favorite : false
     };
     try {
-        const base64 = await fileToBase64(image.src);
+        const base64 = await fileToBase64(file);
         const response = await fetch(WORKER_URL, {
             method: "POST",
             headers: {
