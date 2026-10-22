@@ -85,7 +85,7 @@ main{
 main .image{
     height: 100%;
     width: 40%;
-    color: white;
+    color: black;
     border-radius: 10px;
     padding: 20px;
     overflow: hidden;
@@ -95,7 +95,7 @@ main .image{
     background-size: cover;
 }
 .image h2{
-    margin-top: 10px;
+    margin-top: 50px;
     margin-bottom: 20px;
 }
 form{
