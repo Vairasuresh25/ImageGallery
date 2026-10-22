@@ -121,8 +121,6 @@ function showImages(images){
     if (images.length > 0){
         imageDiv.innerHTML = "";
         for (let i = 0; i < images.length; i++){
-            console.log("Image object:", images[i]);
-            console.log("Image source:", images[i].src);
             let imageBox = document.createElement("div");
             imageBox.classList.add("img");
             let imageUrl = `https://vairasuresh25.github.io/ImageGallery/users/${encodeURIComponent(user.email)}/${encodeURIComponent(images[i].src)}`;
@@ -210,7 +208,7 @@ function previous(){
         index=current.length-1;
     }
     previewImgName.textContent = current[index].name;
-    document.querySelector(".preview-img").style.backgroundImage = `url("https://vairasuresh25.github.io/ImageGallery/users/${user.email}/${images[index].src}")`;
+    document.querySelector(".preview-img").style.backgroundImage = `url("https://vairasuresh25.github.io/ImageGallery/users/${user.email}/${current[index].src}")`;
 }
 let nextBtn = document.querySelector(".next");
 nextBtn.addEventListener("click",next);
@@ -220,7 +218,7 @@ function next(){
         index=current.length%index;
     }
     previewImgName.textContent = current[index].name;
-    document.querySelector(".preview-img").style.backgroundImage = `url("https://vairasuresh25.github.io/ImageGallery/users/${user.email}/${images[index].src}")`;
+    document.querySelector(".preview-img").style.backgroundImage = `url("https://vairasuresh25.github.io/ImageGallery/users/${user.email}/${current[index].src}")`;
 }
 let closeBtn = document.querySelector(".close");
 closeBtn.addEventListener("click",()=>{
@@ -243,7 +241,7 @@ function lightPrevious(){
         index=current.length-1;
     }
     lightImgName.textContent = current[index].name;
-    document.querySelector(".light-img").style.backgroundImage = `url("https://vairasuresh25.github.io/ImageGallery/users/${user.email}/${images[index].src}")`;
+    document.querySelector(".light-img").style.backgroundImage = `url("https://vairasuresh25.github.io/ImageGallery/users/${user.email}/${current[index].src}")`;
 }
 let lightNextBtn = document.querySelector(".light-next");
 lightNextBtn.addEventListener("click",lightNext);
@@ -253,7 +251,7 @@ function lightNext(){
         index=current.length%index;
     }
     lightImgName.textContent = current[index].name;
-    document.querySelector(".light-img").style.backgroundImage = `url("https://vairasuresh25.github.io/ImageGallery/users/${user.email}/${images[index].src}")`;
+    document.querySelector(".light-img").style.backgroundImage = `url("https://vairasuresh25.github.io/ImageGallery/users/${user.email}/${current[index].src}")`;
 }
 let lightCloseBtn = document.querySelector(".light-close");
 lightCloseBtn.addEventListener("click",()=>{
