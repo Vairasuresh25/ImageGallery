@@ -34,7 +34,7 @@ cancel.addEventListener("click", ()=>{
 });
 let uploadImage = document.querySelector(".image-upload");
 const WORKER_URL = "https://image-gallery-api.vairasuresh25t.workers.dev/";
-uploadImage.addEventListener("click", ()=>{
+uploadImage.addEventListener("click", async ()=>{
     let imageSrc = document.querySelector(".file input");
     let imageName = document.querySelector(".image-name input");
     let imageCategory = document.querySelector(".category-list select");
@@ -91,9 +91,6 @@ uploadImage.addEventListener("click", ()=>{
     } catch (error) {
         console.error("Image upload failed:", error);
         alert("Upload failed: " + error.message);
-    } finally {
-        uploadImage.disabled = false;
-        uploadImage.textContent = originalButtonText;
     }
 });
 function fileToBase64(file) {
