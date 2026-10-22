@@ -186,7 +186,7 @@ all.addEventListener("click",()=>{
 });
 let family = document.querySelector(".family");
 family.addEventListener("click",()=>{
-    let familyImages=images.filter((image)=>image.category == "family");
+    let familyImages=allImages.filter((image)=>image.category == "family");
     if (search.value === ""){
         showImages(familyImages);
         current = familyImages;
@@ -197,7 +197,7 @@ family.addEventListener("click",()=>{
 });
 let friends = document.querySelector(".friends");
 friends.addEventListener("click",()=>{
-    let friendsImages=images.filter((image)=>image.category == "friends");
+    let friendsImages=allImages.filter((image)=>image.category == "friends");
     if (search.value === ""){
         showImages(friendsImages);
         current = friendsImages;
@@ -208,7 +208,7 @@ friends.addEventListener("click",()=>{
 });
 let nature = document.querySelector(".nature");
 nature.addEventListener("click",()=>{
-    let natureImages=images.filter((image)=>image.category == "nature");
+    let natureImages=allImages.filter((image)=>image.category == "nature");
     if (search.value === ""){
         showImages(natureImages);
         current = natureImages;
@@ -219,7 +219,7 @@ nature.addEventListener("click",()=>{
 });
 let animals = document.querySelector(".animals");
 animals.addEventListener("click",()=>{
-    let animalsImages=images.filter((image)=>image.category == "animals");
+    let animalsImages=allImages.filter((image)=>image.category == "animals");
     if (search.value === ""){
         showImages(animalsImages);
         current = animalsImages;
@@ -230,7 +230,7 @@ animals.addEventListener("click",()=>{
 });
 let birds = document.querySelector(".birds");
 birds.addEventListener("click",()=>{
-    let birdsImages=images.filter((image)=>image.category == "birds");
+    let birdsImages=allImages.filter((image)=>image.category == "birds");
     if (search.value === ""){
         showImages(birdsImages);
         current = birdsImages;
@@ -241,7 +241,7 @@ birds.addEventListener("click",()=>{
 });
 let travel = document.querySelector(".travel");
 travel.addEventListener("click",()=>{
-    let travelImages=images.filter((image)=>image.category == "travel");
+    let travelImages=allImages.filter((image)=>image.category == "travel");
     if (search.value === ""){
         showImages(travelImages);
         current = travelImages;
@@ -252,7 +252,7 @@ travel.addEventListener("click",()=>{
 });
 let food = document.querySelector(".food");
 food.addEventListener("click",()=>{
-    let foodImages=images.filter((image)=>image.category == "food");
+    let foodImages=allImages.filter((image)=>image.category == "food");
     if (search.value === ""){
         showImages(foodImages);
         current = foodImages;
@@ -263,7 +263,7 @@ food.addEventListener("click",()=>{
 });
 let technology = document.querySelector(".technology");
 technology.addEventListener("click",()=>{
-    let technologyImages=images.filter((image)=>image.category == "technology");
+    let technologyImages=allImages.filter((image)=>image.category == "technology");
     if (search.value === ""){
         showImages(technologyImages);
         current = technologyImages;
