@@ -232,7 +232,7 @@ closeBtn.addEventListener("click",()=>{
     document.querySelector(".preview-box").style.display = "none";
     document.removeEventListener("keydown",keyEvent);
 });
-function downloadFromUrl(fileUrl, fileName) {
+function downloadImage(fileUrl, fileName) {
     let link = document.createElement('a');
     link.href = fileUrl;
     link.download = fileName || 'download';
