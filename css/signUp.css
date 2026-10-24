@@ -60,6 +60,9 @@ header{
     justify-content: space-around;
     align-items: center;
 }
+.top-right p{
+    font-size: 14px;
+}
 .top-right button{
     height: 75%;
     width: 100px;
@@ -95,7 +98,7 @@ main .image{
     background-size: cover;
 }
 .image h2{
-    margin-top: 30px;
+    margin-top: 20px;
     margin-bottom: 10px;
 }
 form{

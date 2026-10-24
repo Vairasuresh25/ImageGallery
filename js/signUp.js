@@ -10,6 +10,10 @@ let password = document.querySelector(".password input");
 let confirmPassword = document.querySelector(".confirm input");
 let sign = document.querySelector("form button");
 sign.addEventListener("click", async () => {
+    if (fullName.value == "" || email.value =="" || password == "" || confirmPassword == ""){
+        alert("Please fill all fields!");
+        return;
+    }
     if (password.value !== confirmPassword.value) {
         alert("Passwords do not match!");
         return;

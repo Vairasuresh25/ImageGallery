@@ -60,6 +60,9 @@ header{
     justify-content: space-around;
     align-items: center;
 }
+.top-right p{
+    font-size: 14px;
+}
 .top-right button{
     height: 75%;
     width: 100px;
@@ -104,17 +107,17 @@ main .image{
     text-align: center;
 }
 .form h2{
-    margin-bottom: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 form p{
     font-size: 14px;
-    margin-bottom: 20px;
 }
 .form div{
     width: 100%;
     text-align: left;
     position: relative;
-    margin-top: 15px;
+    margin-top: 20px;
 }
 .form input{
     width: 100%;
@@ -136,7 +139,7 @@ form p{
     width: 100%;
     border: none;
     border-radius: 30px;
-    margin-top: 10px;
+    margin-top: 15px;
     background-color: #62dafbff;
     color: #223F32;
     cursor: pointer;

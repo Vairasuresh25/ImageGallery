@@ -1,3 +1,6 @@
+if (localStorage.getItem("sign") == "false"){
+    window.location.href = "signIn.html";
+}
 let user = JSON.parse(localStorage.getItem("user"));
 let allImages = JSON.parse(localStorage.getItem(user.email) || "[]");
 let favorites = allImages.filter(image => image.favorite);
@@ -6,7 +9,7 @@ localStorage.setItem(`${user.email}-favorites`,JSON.stringify(favorites));
 let sign = document.querySelector(".profile .sign");
 sign.addEventListener("click", ()=>{
     localStorage.setItem("sign","false");
-    window.location.href = "html/signIn.html";
+    window.location.href = "signIn.html";
 });
 document.querySelector(".profile .user-name").textContent = user.name;
 document.querySelector(".profile button").textContent = getFirstLetter(user.name);
@@ -31,10 +34,10 @@ function showImages(images){
             let imageUrl = `https://vairasuresh25.github.io/ImageGallery/users/${encodeURIComponent(user.email)}/${encodeURIComponent(images[i].src)}`;
             imageBox.style.backgroundImage = `url("${imageUrl}")`;
             imageBox.addEventListener("mouseover", ()=>{
-                btnDiv.style.display = "flex";
+                btnDiv.style.opacity = "1";
             });
             imageBox.addEventListener("mouseleave", ()=>{
-                btnDiv.style.display = "none";
+                btnDiv.style.opacity = "0";
             });
             imageBox.addEventListener("click",(event)=>{
                 if (event.target.classList.contains("preview-btn")) {
@@ -269,6 +272,28 @@ technology.addEventListener("click",()=>{
         current = technologyImages;
     }else{
         current = technologyImages;
+        searchEvent();
+    }
+});
+let collage = document.querySelector(".collage");
+collage.addEventListener("click",()=>{
+    let collageImages=allImages.filter((image)=>image.category == "collage");
+    if (search.value === ""){
+        showImages(collageImages);
+        current = collageImages;
+    }else{
+        current = collageImages;
+        searchEvent();
+    }
+});
+let other = document.querySelector(".other");
+other.addEventListener("click",()=>{
+    let otherImages=allImages.filter((image)=>image.category == "collage");
+    if (search.value === ""){
+        showImages(otherImages);
+        current = otherImages;
+    }else{
+        current = otherImages;
         searchEvent();
     }
 });

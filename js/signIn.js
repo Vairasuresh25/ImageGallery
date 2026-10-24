@@ -9,12 +9,11 @@ let passwordId = document.querySelector(".password input");
 let sign = document.querySelector(".form button");
 let user = {};
 sign.addEventListener("click", ()=>{
-    if (!emails.includes(emailId.value)){
+    if (!emails.includes(emailId.value.toLowerCase())){
         alert("Email does not exist!");
         return;
     }
-    let user = users.find((user) => user.email === emailId.value);
-
+    let user = users.find((user) => user.email === emailId.value.toLowerCase());
     if (!user || user.password !== encrypt(passwordId.value)) {
         alert("Invalid email or password!");
         return;

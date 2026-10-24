@@ -117,6 +117,7 @@ function saveImages() {
 let previewImgName = document.querySelector(".preview-img-name p");
 let lightImgName = document.querySelector(".light-img-name p");
 let index = 0;
+let url = "";
 function showImages(images){
     if (images.length > 0){
         imageDiv.innerHTML = "";
@@ -126,10 +127,10 @@ function showImages(images){
             let imageUrl = `https://vairasuresh25.github.io/ImageGallery/users/${encodeURIComponent(user.email)}/${encodeURIComponent(images[i].src)}`;
             imageBox.style.backgroundImage = `url("${imageUrl}")`;
             imageBox.addEventListener("mouseover", ()=>{
-                btnDiv.style.display = "flex";
+                btnDiv.style.opacity = "1";
             });
             imageBox.addEventListener("mouseleave", ()=>{
-                btnDiv.style.display = "none";
+                btnDiv.style.opacity = "0";
             });
             imageBox.addEventListener("click",(event)=>{
                 if (event.target.classList.contains("preview-btn")) {
@@ -208,7 +209,8 @@ function previous(){
         index=current.length-1;
     }
     previewImgName.textContent = current[index].name;
-    document.querySelector(".preview-img").style.backgroundImage = `url("https://vairasuresh25.github.io/ImageGallery/users/${encodeURIComponent(user.email)}/${encodeURIComponent(current[index].src)}")`;
+    url = "https://vairasuresh25.github.io/ImageGallery/users/${encodeURIComponent(user.email)}/${encodeURIComponent(current[index].src)}"
+    document.querySelector(".preview-img").style.backgroundImage = `url("${url}")`;
 }
 let nextBtn = document.querySelector(".next");
 nextBtn.addEventListener("click",next);
@@ -218,13 +220,26 @@ function next(){
         index=current.length%index;
     }
     previewImgName.textContent = current[index].name;
-    document.querySelector(".preview-img").style.backgroundImage = `url("https://vairasuresh25.github.io/ImageGallery/users/${encodeURIComponent(user.email)}/${encodeURIComponent(current[index].src)}")`;
+    url = "https://vairasuresh25.github.io/ImageGallery/users/${encodeURIComponent(user.email)}/${encodeURIComponent(current[index].src)}";
+    document.querySelector(".preview-img").style.backgroundImage = `url("${url}")`;
 }
+let downloadBtn = document.querySelector(".download");
+downloadBtn.addEventListener("click",()=>{
+    downloadImage(url,current[index].name);
+});
 let closeBtn = document.querySelector(".close");
 closeBtn.addEventListener("click",()=>{
     document.querySelector(".preview-box").style.display = "none";
     document.removeEventListener("keydown",keyEvent);
 });
+function downloadFromUrl(fileUrl, fileName) {
+    let link = document.createElement('a');
+    link.href = fileUrl;
+    link.download = fileName || 'download';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
 function keyEvent(event){
     if (event.code == "ArrowLeft"){
         previous();
@@ -364,6 +379,28 @@ technology.addEventListener("click",()=>{
         current = technologyImages;
     }else{
         current = technologyImages;
+        searchEvent();
+    }
+});
+let collage = document.querySelector(".collage");
+collage.addEventListener("click",()=>{
+    let collageImages=allImages.filter((image)=>image.category == "collage");
+    if (search.value === ""){
+        showImages(collageImages);
+        current = collageImages;
+    }else{
+        current = collageImages;
+        searchEvent();
+    }
+});
+let other = document.querySelector(".other");
+other.addEventListener("click",()=>{
+    let otherImages=allImages.filter((image)=>image.category == "collage");
+    if (search.value === ""){
+        showImages(otherImages);
+        current = otherImages;
+    }else{
+        current = otherImages;
         searchEvent();
     }
 });
