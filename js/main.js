@@ -209,7 +209,7 @@ function previous(){
         index=current.length-1;
     }
     previewImgName.textContent = current[index].name;
-    url = "https://vairasuresh25.github.io/ImageGallery/users/${encodeURIComponent(user.email)}/${encodeURIComponent(current[index].src)}"
+    url = `https://vairasuresh25.github.io/ImageGallery/users/${encodeURIComponent(user.email)}/${encodeURIComponent(current[index].src)}`;
     document.querySelector(".preview-img").style.backgroundImage = `url("${url}")`;
 }
 let nextBtn = document.querySelector(".next");
@@ -220,7 +220,7 @@ function next(){
         index=current.length%index;
     }
     previewImgName.textContent = current[index].name;
-    url = "https://vairasuresh25.github.io/ImageGallery/users/${encodeURIComponent(user.email)}/${encodeURIComponent(current[index].src)}";
+    url = `https://vairasuresh25.github.io/ImageGallery/users/${encodeURIComponent(user.email)}/${encodeURIComponent(current[index].src)}`;
     document.querySelector(".preview-img").style.backgroundImage = `url("${url}")`;
 }
 let downloadBtn = document.querySelector(".download");
