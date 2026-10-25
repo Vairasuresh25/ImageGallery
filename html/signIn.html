@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="https://kit.fontawesome.com/82bc775c5d.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../css/signIn.css">
+        <script src="../js/signIn.js" defer></script>
+    </head>
+    <body>
+        <header>
+            <div class="logo-sec">
+                <p><button><i class="fa-regular fa-camera"></i></button> Pixel<span>Flow</span></p>
+            </div>
+        </header>
+        <div class="main">
+            <div class="form">
+                <button class="key"><i class="fa-solid fa-key key-icon"></i></button>
+                <h2>Sign In</h2>
+                <p>Enter your credentials to access your gallery account.</p>
+                <div class="email">
+                    <label for="email">Email Address</label>
+                    <input type="email" name="email" id="email" placeholder="Enter your email address" required>
+                    <i class="fa-solid fa-envelope icon"></i>
+                    <p class="error">Please enter the email address</p>
+                </div>
+                <div class="password">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" placeholder="Enter your password" required>
+                    <i class="fa-solid fa-lock icon"></i>
+                    <p class="error">Please enter the password</p>
+                </div>
+                <p class="error invalid-error">Invalid username or password</p>
+                <button type="submit" class="sign"><i class="fa-solid fa-arrow-right-to-bracket"></i> Sign In</button>
+                <p class="signin">Don't have an account? <a href="signUp.html">Sign Up</a></p>
+            </div>
+        </div>
+    </body>
+</html>

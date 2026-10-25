@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="../css/myProfile.css">
+        <script src="https://kit.fontawesome.com/82bc775c5d.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+        <script src="../js/myProfile.js" defer></script>
+    </head>
+    <body>
+        <header>
+            <div class="logo-sec">
+                <a href="main.html"><button><i class="fa-regular fa-camera"></i></button> Pixel<span>Flow</span></a>
+            </div>
+            <nav>
+                <button class="home">Home</button>
+                <button class="my-gallery">My Gallery</button>
+                <button class="favorite">Favorites</button>
+                <button class="my-profile">My Profile</button>
+            </nav>
+            <div class="profile">
+                <button class="initial">S</button>
+                <p class="user-name"></p>
+                <p class="sign" title="Logout"><i class="fa-solid fa-arrow-right-from-bracket"></i></p>
+            </div>
+        </header>
+        <main>
+            <div class="top">
+                <button class="image"><img src="../images/user.jpg"></button>
+                <div class="welcome">
+                    <h2></h2>
+                    <p>Photographer and visual artist exploring high-contrast landscapes and computational art.</p>
+                    <button class="mail"></button>
+                    <i class="fa-solid fa-envelope mail-icon"></i>
+                    <div class="details">
+                        <button class="photos"><span></span> Photos</button>
+                        <button class="favorite"><span></span> Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="personal">
+                <p class="head"><span><i class="fa-solid fa-user"></i></span> Personal Details</p>
+                <form>
+                    <div class="name">
+                        <label for="name">FULL NAME</label>
+                        <input type="text" name="name" id="name" disabled>
+                    </div>
+                    <div class="email">
+                        <label for="email">EMAIL ADDRESS</label>
+                        <input type="email" name="email" id="email" disabled>
+                    </div>
+                </form>
+            </div>
+        </main>
+        <footer>
+            <p><i class="fa-regular fa-copyright"></i> 2026 My Image Gallery</p>
+        </footer>
+        <div class="logout-confirm">
+            <p>Are you sure you want to log out?</p>
+            <div class="btns">
+                <button class="logout-cancel">Cancel</button>
+                <button class="logout">Logout</button>
+            </div>
+        </div>
+    </body>
+</html>
