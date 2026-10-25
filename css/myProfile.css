@@ -1,0 +1,266 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: "Inter", sans-serif;
+    position: relative;
+}
+main{
+    width: 100vw;
+    height: 85vh;
+    padding: 20px;
+    background-color: #0a0e16;
+}
+header{
+    height: 70px;
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #0f131c;
+    border-bottom: 1px solid #282e3c;
+}
+a{
+    text-decoration: none;
+    color: #f1f5f9;
+}
+.logo-sec{
+    font-size: 24px;
+    font-weight: 700;
+    cursor: pointer;
+}
+.logo-sec a button{
+    height: 50px;
+    width: 50px;
+    border: none;
+    border-radius: 5px;
+    color: #223F32;
+    background-color: #50d2f7;
+    font-size: 24px;
+    cursor: pointer;
+}
+.logo-sec span{
+    color: #50d2f7;
+}
+nav{
+    width: 400px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav button{
+    border: none;
+    border-radius: 20px;
+    height: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: transparent;
+    color: #94a3b8;
+    cursor: pointer;
+}
+nav button:hover{
+    color: #50d2f7;
+}
+nav .my-profile{
+    color: black;
+    background-color: #50d2f7;
+}
+nav .my-profile:hover{
+    color: black;
+}
+.profile{
+    height: 100%;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+.profile .initial{
+    height: 80%;
+    width: 40px;
+    border: 2px solid #50d2f7;
+    border-radius: 50%;
+    font-size: 24px;
+    font-weight: 700;
+    color: #38bdf8;
+    background-color: transparent;
+}
+.profile .user-name{
+    color: #94a3b8;
+}
+.sign{
+    cursor: pointer;
+    color: #94a3b8;
+}
+.top{
+    width: 100%;
+    height: 200px;
+    border-radius: 20px;
+    padding: 20px;
+    background: radial-gradient( circle at 50% -70%, rgba(14, 74, 90, 0.914) 0%, rgb(19, 31, 42) 30%, #171f31 100% );
+    border: 1px solid #282e3c;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.top .image{
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    background-color: white;
+    border: none;
+    overflow: hidden;
+}
+.image img{
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+}
+.top .welcome{
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+.welcome h2{
+    color: #50d2f7;
+    font-size: 36px;
+}
+.welcome p{
+    width: 600px;
+    font-size: 14px;
+    color: #94a3b8;
+}
+.welcome button{
+    height: 40px;
+    width: 300px;
+    color: #f1f5f9;
+    border: none;
+    font-size: 14px;
+    border: 1px solid #282e3c;
+    border-radius: 20px;
+    background-color: transparent;
+}
+.welcome .mail-icon{
+    position: absolute;
+    bottom: 12px;
+    left: 10px;
+    color: #38bdf8;
+}
+.details{
+    width: 400px;
+    position: absolute;
+    bottom: 0px;
+    left: 350px;
+    display: flex;
+    gap: 20px;
+}
+.details button{
+    border: none;
+    background-color: #21262f;
+    width: 150px;
+    color: #94a3b8;
+}
+.details span{
+    color: #50d2f7;
+    font-size: 24px;
+}
+.personal{
+    width: 60%;
+    height: 300px;
+    margin: 0 auto;
+    margin-top: 100px;
+    background-color: #1a202c;
+    border: 1px solid #282e3c;
+    border-radius: 10px;
+    padding: 20px;
+}
+.personal p{
+    color: white;
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+.personal span{
+    color: black;
+    stroke-width: 50px;
+    stroke: #50d2f7;
+}
+.personal form{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+.personal .name{
+    width: 45%;
+    height: 70px;
+}
+.personal .email{
+    width: 45%;
+    height: 70px;
+}
+.personal label{
+    color: white;
+}
+.personal input{
+    width: 100%;
+    height: 40px;
+    margin-top: 10px;
+    border: 1px solid #282e3c;
+    border-radius: 20px;
+    background-color: #171f31;
+    color: #f1f5f9;
+    padding-left: 20px;
+    font-size: 16px;
+}
+footer{
+    width: 100%;
+    height: 70px;
+    background-color: #0f131c;
+    border-top: 1px solid #282e3c;
+    font-size: 16px;
+    position: fixed;
+    bottom: 0px;
+}
+footer p{
+    margin-top: 24px;
+    margin-left: 20px;
+    color: #94a3b8;
+}
+.logout-confirm{
+    height: 200px;
+    width: 500px;
+    position: absolute;
+    top: -200px;
+    left: 500px;
+    background-color: #171f31;
+    border: 1px solid #282e3c;
+    border-radius: 10px;
+    padding: 30px;
+}
+.logout-confirm p{
+    text-align: center;
+    color: #f1f5f9;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    font-size: 24px;
+}
+.logout-confirm .btns{
+    width: 100%;
+    height: 60px;
+    padding-left: 30px;
+    display: flex;
+    gap: 30px;
+}
+.logout-confirm .btns button{
+    height: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: #62dafbff;
+    cursor: pointer;
+}
