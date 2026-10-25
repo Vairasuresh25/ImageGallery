@@ -163,7 +163,7 @@ function showImages(images){
         imageDiv.append(empty);
     }
 }
-document.querySelector(".save").addEventListener("click",()=>{
+document.querySelector(".save").addEventListener("click",async ()=>{
     let originalImage = allImages.find(image => image.name === document.querySelector(".filter-img-name").textContent);
     let image = {
         src : originalImage.src+" filtered",
