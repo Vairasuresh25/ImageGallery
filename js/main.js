@@ -264,7 +264,7 @@ document.querySelector(".save").addEventListener("click",async ()=>{
         favorite : false
     };
     try {
-        const base64 = await fileToBase64(file);
+        const base64 = await fileToBase64(image.src);
         const response = await fetch(WORKER_URL, {
             method: "POST",
             headers: {
