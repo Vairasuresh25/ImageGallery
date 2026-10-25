@@ -1,0 +1,157 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: "Inter", sans-serif;
+}
+main{
+    height: 130vh;
+    width: 100vw;
+    padding-top: 50px;
+    background-image: radial-gradient( circle at 50% -30%, rgba(14, 74, 90, 0.914) 0%, rgb(19, 28, 36) 30%, #0a0e16 100% );
+}
+.main{
+    height: 1000px;
+    width: 60%;
+    margin: 0 auto;
+    border: 1px solid rgba(80, 210, 247, 0.18);
+    border-radius: 10px;
+    padding: 20px;
+    background: linear-gradient( 45deg, rgba(19, 58, 73, 0.914) 0%, rgba(17, 21, 27, 0.95) 20%, rgba(17, 21, 27, 0.95) 80%, rgba(19, 58, 73, 0.914) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.about-me{
+    width: 100%;
+    height: 180px;
+    padding: 20px;
+    border: 1px solid rgba(80, 210, 247, 0.18);
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    background-color:  #181c24;
+}
+h2{
+    color: white;
+    font-size: 32px;
+}
+.about-me p{
+    width: 650px;
+}
+h3{
+    color: white;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+ul li::marker{
+    color: #50d2f7;
+}
+.first{
+    width: 100%;
+    height: 150px;
+    padding: 20px;
+    border: 1px solid rgba(80, 210, 247, 0.18);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color:  #181c24;
+}
+.first button{
+    height: 40px;
+    width: 100px;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    background-color: #50d2f7;
+    font-size: 16px;
+}
+.image{
+    height: 100%;
+    width: 138px;
+    border: 3px solid #50d2f7;
+    border-radius: 50%;
+    overflow: hidden;
+    background-image: url("my_profile.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+h1{
+    color: white;
+    font-size: 32px;
+    width: 550px;
+}
+.name{
+    color: white;
+    font-size: 24px;
+    font-weight: 600;
+}
+span{
+    color: #50d2f7;
+}
+.box{
+    width: 100%;
+    height: 70%;
+}
+p,li{
+    color: #94a3b8;
+    line-height: 1.5;
+}
+.box{
+    width: 100%;
+    height: 530px;
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+}
+.project{
+    height: 48%;
+    width: 48%;
+    padding: 20px;
+    border: 1px solid rgba(80, 210, 247, 0.18);
+    border-radius: 10px;
+    background-color:  #181c24;
+}
+.challenges{
+    height: 48%;
+    width: 48%;
+    padding: 20px;
+    border: 1px solid rgba(80, 210, 247, 0.18);
+    border-radius: 10px;
+    background-color:  #181c24;
+}
+.solve{
+    height: 48%;
+    width: 48%;
+    padding: 20px;
+    border: 1px solid rgba(80, 210, 247, 0.18);
+    border-radius: 10px;
+    background-color:  #181c24;
+}
+.acknowledge{
+    height: 48%;
+    width: 48%;
+    padding: 20px;
+    border: 1px solid rgba(80, 210, 247, 0.18);
+    border-radius: 10px;
+    background-color:  #181c24;
+}
+.project-link{
+    height: 50px;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    border: 1px solid rgba(80, 210, 247, 0.18);
+    border-radius: 10px;
+    background-color:  #181c24;
+    display: flex;
+    gap: 20px;
+}
