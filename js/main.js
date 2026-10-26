@@ -283,7 +283,7 @@ document.querySelector(".save").addEventListener("click",async ()=>{
         });
         const file = new File(
             [blob],
-            `filtered-${originalImage.src}.jpg`,
+            `filtered-${originalImage.src}`,
             { type: "image/jpeg" }
         );
         const base64 = await fileToBase64(file);
