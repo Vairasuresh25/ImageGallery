@@ -309,7 +309,7 @@ document.querySelector(".save").addEventListener("click",async ()=>{
         }
         let image = {
             src : file.name,
-            name : originalImage.name,
+            name : originalImage.name + " Filter",
             category : originalImage.category,
             favorite : false
         };
