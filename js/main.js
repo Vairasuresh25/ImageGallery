@@ -257,9 +257,18 @@ function showImages(images){
 }
 document.querySelector(".save").addEventListener("click",async ()=>{
     let originalImage = allImages.find(image => image.name === document.querySelector(".filter-img-name").textContent);
+    const blob = await new Promise((resolve, reject) => {
+        canvas.toBlob(result => {
+            if (result) {
+                resolve(result);
+            } else {
+                reject(new Error("Could not create filtered image."));
+            }
+        }, "image/jpeg", 0.95);
+    });
     const file = new File(
         [blob],
-        `filtered-${originalImage.src}.jpg`,
+        `filtered-${originalImage.src}`,
         { type: "image/jpeg" }
     );
     let image = {
