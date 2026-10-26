@@ -257,17 +257,17 @@ function showImages(images){
 }
 document.querySelector(".save").addEventListener("click",async ()=>{
     let originalImage = allImages.find(image => image.name === document.querySelector(".filter-img-name").textContent);
-    let image = {
-        src : "Filter "+originalImage.src,
-        name : originalImage.name+" Filtered",
-        category : originalImage.category,
-        favorite : false
-    };
     const file = new File(
         [blob],
         `filtered-${originalImage.src}.jpg`,
         { type: "image/jpeg" }
     );
+    let image = {
+        src : file.name,
+        name : originalImage.name+" Filtered",
+        category : originalImage.category,
+        favorite : false
+    };
     try {
         const base64 = await fileToBase64(file);
         const response = await fetch(WORKER_URL, {
