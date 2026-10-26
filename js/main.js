@@ -258,8 +258,8 @@ function showImages(images){
 document.querySelector(".save").addEventListener("click",async ()=>{
     let originalImage = allImages.find(image => image.name === document.querySelector(".filter-img-name").textContent);
     let image = {
-        src : originalImage.src+" filtered",
-        name : originalImage.name+" filtered",
+        src : "Filter "+originalImage.src,
+        name : originalImage.name+" Filtered",
         category : originalImage.category,
         favorite : false
     };
