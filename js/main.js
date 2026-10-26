@@ -8,7 +8,7 @@ localStorage.setItem(user.email, JSON.stringify(allImages));
 localStorage.setItem(`${user.email}-favorites`,JSON.stringify(favorites));
 let sign = document.querySelector(".profile .sign");
 sign.addEventListener("click", ()=>{
-    if (confirm("Are you sure you want to log out?)){
+    if (confirm("Are you sure you want to log out?")){
         localStorage.setItem("sign","false");
         window.location.href = "signIn.html";
     }
