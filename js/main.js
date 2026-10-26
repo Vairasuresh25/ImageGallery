@@ -55,6 +55,7 @@ const WORKER_URL = "https://image-gallery-api.vairasuresh25t.workers.dev/";
 uploadImage.addEventListener("click", async ()=>{
     let imageSrc = document.querySelector(".file input");
     let file = imageSrc.files[0];
+    console.log(file);
     let imageName = document.querySelector(".image-name input");
     let imageCategory = document.querySelector(".category-list select");
     if (imageSrc.value === ""){
