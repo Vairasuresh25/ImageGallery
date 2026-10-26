@@ -176,14 +176,36 @@ function fileToBase64(file) {
 }
 document.querySelector(".save").addEventListener("click",async ()=>{
     let originalImage = allImages.find(image => image.name === document.querySelector(".filter-img-name").textContent);
-    let image = {
-        src : "Filter "+originalImage.src,
-        name : originalImage.name+" Filtered",
-        category : originalImage.category,
-        favorite : false
-    };
     try {
-        const base64 = await fileToBase64(image.src);
+        let imageUrl = `https://vairasuresh25.github.io/ImageGallery/users/${encodeURIComponent(user.email)}/${encodeURIComponent(originalImage.src)}`;
+        let img = new Image();
+        img.crossOrigin = "anonymous";
+        await new Promise((resolve, reject) => {
+            img.onload = resolve;
+            img.onerror = () => reject(new Error("Could not load the original image."));
+            img.src = imageUrl;
+        });
+        let canvas = document.createElement("canvas");
+        let ctx = canvas.getContext("2d");
+        canvas.width = img.naturalWidth;
+        canvas.height = img.naturalHeight;
+        ctx.filter = document.querySelector(".filter-box").style.filter;
+        ctx.drawImage(img, 0, 0);
+        const blob = await new Promise((resolve, reject) => {
+            canvas.toBlob(result => {
+                if (result) {
+                    resolve(result);
+                } else {
+                    reject(new Error("Could not create filtered image."));
+                }
+            }, "image/jpeg", 0.95);
+        });
+        const file = new File(
+            [blob],
+            `filtered-${originalImage.src}`,
+            { type: "image/jpeg" }
+        );
+        const base64 = await fileToBase64(file);
         const response = await fetch(WORKER_URL, {
             method: "POST",
             headers: {
@@ -192,7 +214,7 @@ document.querySelector(".save").addEventListener("click",async ()=>{
             body: JSON.stringify({
                 action: "uploadImage",
                 email: user.email,
-                fileName: image.src,
+                fileName: file.name,
                 contentBase64: base64
             })
         });
@@ -201,9 +223,15 @@ document.querySelector(".save").addEventListener("click",async ()=>{
             throw new Error(
                 result.details ||
                 result.error ||
-                "Could not upload the image."
+                "Could not upload the filtered image."
             );
         }
+        let image = {
+            src : file.name,
+            name : originalImage.name + " Filter",
+            category : originalImage.category,
+            favorite : false
+        };
         allImages.unshift(image);
         localStorage.setItem(user.email,JSON.stringify(allImages));
         showImages(allImages);
@@ -397,20 +425,20 @@ technology.addEventListener("click",()=>{
         searchEvent();
     }
 });
-let collage = document.querySelector(".collage");
-collage.addEventListener("click",()=>{
-    let collageImages=allImages.filter((image)=>image.category == "collage");
+let filters = document.querySelector(".filters-option");
+filters.addEventListener("click",()=>{
+    let filterImages=allImages.filter((image)=>image.category == "filters");
     if (search.value === ""){
-        showImages(collageImages);
-        current = collageImages;
+        showImages(filterImages);
+        current = filterImages;
     }else{
-        current = collageImages;
+        current = filterImages;
         searchEvent();
     }
 });
 let other = document.querySelector(".other");
 other.addEventListener("click",()=>{
-    let otherImages=allImages.filter((image)=>image.category == "collage");
+    let otherImages=allImages.filter((image)=>image.category == "other");
     if (search.value === ""){
         showImages(otherImages);
         current = otherImages;
