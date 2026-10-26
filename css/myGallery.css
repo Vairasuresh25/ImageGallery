@@ -154,6 +154,7 @@ label:has(input[type="radio"]:checked){
     display: flex;
     align-items: center;
     cursor: pointer;
+    text-wrap: nowrap;
 }
 .images{
     width: 100%;
