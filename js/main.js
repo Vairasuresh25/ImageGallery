@@ -507,14 +507,14 @@ technology.addEventListener("click",()=>{
         searchEvent();
     }
 });
-let collage = document.querySelector(".filters-option");
-collage.addEventListener("click",()=>{
-    let collageImages=allImages.filter((image)=>image.category == "filters");
+let filters = document.querySelector(".filters-option");
+filters.addEventListener("click",()=>{
+    let filterImages=allImages.filter((image)=>image.category == "filters");
     if (search.value === ""){
-        showImages(collageImages);
-        current = collageImages;
+        showImages(filterImages);
+        current = filterImages;
     }else{
-        current = collageImages;
+        current = filterImages;
         searchEvent();
     }
 });
