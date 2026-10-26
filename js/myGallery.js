@@ -162,6 +162,7 @@ function showImages(images){
         imageDiv.append(empty);
     }
 }
+let WORKER_URL = "https://image-gallery-api.vairasuresh25t.workers.dev/";
 function fileToBase64(file) {
     return new Promise((resolve, reject) => {
         const reader = new FileReader();
