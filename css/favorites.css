@@ -180,7 +180,7 @@ label:has(input[type="radio"]:checked){
     scrollbar-width: none;
     display: flex;
     flex-wrap: wrap;
-    row-gap: 0px;
+    row-gap: 30px;
     column-gap: 30px;
 }
 .images .img{
