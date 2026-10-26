@@ -253,6 +253,9 @@ label:has(input[type="radio"]:checked){
 .images .img:hover .display-name{
     transform: scale(1.25);
 }
+.images .img:hover .display-name{
+    transform: scale(1.25);
+}
 .images .display-name-div{
     width: 100%;
     height: 40px;
