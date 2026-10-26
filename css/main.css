@@ -167,6 +167,7 @@ nav .home:hover{
 .search{
     width: 100%;
     height: 60px;
+    margin-top: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
     display: flex;
