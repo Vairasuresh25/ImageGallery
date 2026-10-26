@@ -129,10 +129,6 @@ function showImages(images){
                 showImages(favorites);
             });
             imageBox.append(fav);
-            let edit = document.createElement("button");
-            edit.innerHTML = "<i class='fa-solid fa-sliders'></i>";
-            edit.classList.add("edit-btn");
-            imageBox.append(edit);
             let btnDiv = document.createElement("div");
             btnDiv.classList.add("btn-div");
             let previewBtn = document.createElement("button");
@@ -163,101 +159,6 @@ function showImages(images){
         imageDiv.append(empty);
     }
 }
-function fileToBase64(file) {
-    return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onload = () => {
-            const base64 = reader.result.split(",")[1];
-            resolve(base64);
-        };
-        reader.onerror = () => reject(reader.error);
-        reader.readAsDataURL(file);
-    });
-}
-document.querySelector(".save").addEventListener("click",async ()=>{
-    let originalImage = allImages.find(image => image.name === document.querySelector(".filter-img-name").textContent);
-    try {
-        let imageUrl = `https://vairasuresh25.github.io/ImageGallery/users/${encodeURIComponent(user.email)}/${encodeURIComponent(originalImage.src)}`;
-        let img = new Image();
-        img.crossOrigin = "anonymous";
-        await new Promise((resolve, reject) => {
-            img.onload = resolve;
-            img.onerror = () => reject(new Error("Could not load the original image."));
-            img.src = imageUrl;
-        });
-        let canvas = document.createElement("canvas");
-        let ctx = canvas.getContext("2d");
-        canvas.width = img.naturalWidth;
-        canvas.height = img.naturalHeight;
-        ctx.filter = document.querySelector(".filter-box").style.filter;
-        ctx.drawImage(img, 0, 0);
-        const blob = await new Promise((resolve, reject) => {
-            canvas.toBlob(result => {
-                if (result) {
-                    resolve(result);
-                } else {
-                    reject(new Error("Could not create filtered image."));
-                }
-            }, "image/jpeg", 0.95);
-        });
-        const file = new File(
-            [blob],
-            `filtered-${originalImage.src}`,
-            { type: "image/jpeg" }
-        );
-        const base64 = await fileToBase64(file);
-        const response = await fetch(WORKER_URL, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                action: "uploadImage",
-                email: user.email,
-                fileName: file.name,
-                contentBase64: base64
-            })
-        });
-        const result = await response.json();
-        if (!response.ok) {
-            throw new Error(
-                result.details ||
-                result.error ||
-                "Could not upload the filtered image."
-            );
-        }
-        let image = {
-            src : file.name,
-            name : originalImage.name + " Filter",
-            category : originalImage.category,
-            favorite : false
-        };
-        allImages.unshift(image);
-        localStorage.setItem(user.email,JSON.stringify(allImages));
-        showImages(allImages);
-        document.querySelector(".filter").style.display = "none";
-        document.querySelector("header").style.display = "flex";
-        document.querySelector("main").style.display = "block";
-        document.querySelector("footer").style.display = "block";
-        document.querySelector(".filter-box").style.filter = "none";
-    } catch (error) {
-        console.error("Image upload failed:", error);
-        alert("Upload failed: " + error.message);
-    }
-});
-document.querySelector(".cancel-filter").addEventListener("click",()=>{
-    let filtersBox = document.querySelectorAll(".filters div");
-    for (let box of filtersBox){
-        for (let box of filtersBox){
-            box.style.border = "none";
-        }
-    }
-    document.querySelector(".filter").style.display = "none";
-    document.querySelector("header").style.display = "flex";
-    document.querySelector("main").style.display = "block";
-    document.querySelector("footer").style.display = "block";
-    document.querySelector(".filter-box").style.filter = "none";
-});
 let previousBtn = document.querySelector(".previous");
 previousBtn.addEventListener("click",previous);
 function previous(){
