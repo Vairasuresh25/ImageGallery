@@ -8,11 +8,15 @@ localStorage.setItem(user.email, JSON.stringify(allImages));
 localStorage.setItem(`${user.email}-favorites`,JSON.stringify(favorites));
 let sign = document.querySelector(".profile .sign");
 sign.addEventListener("click", ()=>{
-    if (confirm("Are you sure you want to log out?")){
-        localStorage.setItem("sign","false");
-        window.location.href = "signIn.html";
-    }
-}
+    document.querySelector(".logout-confirm").style.top = "20px";
+});
+document.querySelector(".logout-confirm .logout").addEventListener("click",()=>{
+    localStorage.setItem("sign","false");
+    window.location.href = "signIn.html";
+});
+document.querySelector(".logout-confirm .logout-cancel").addEventListener("click",()=>{
+    document.querySelector(".logout-confirm").style.top = "-200px";
+});
 document.querySelector(".home").addEventListener("click",()=>{
     window.location.href = "main.html";
 });
