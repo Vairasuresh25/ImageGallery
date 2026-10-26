@@ -95,6 +95,7 @@ function showImages(images){
                     for (let box of filtersBox){
                         box.style.backgroundImage = `url("${imageUrl}")`;
                         box.addEventListener("click",()=>{
+                            document.querySelector(".save").disabled = false;
                             for (let bor of filtersBox){
                                 bor.style.border = "none";
                             }
@@ -174,6 +175,7 @@ function fileToBase64(file) {
         reader.readAsDataURL(file);
     });
 }
+document.querySelector(".save").disabled = true;
 document.querySelector(".save").addEventListener("click",async ()=>{
     let originalImage = allImages.find(image => image.name === document.querySelector(".filter-img-name").textContent);
     try {
@@ -229,7 +231,7 @@ document.querySelector(".save").addEventListener("click",async ()=>{
         let image = {
             src : file.name,
             name : originalImage.name + " Filter",
-            category : originalImage.category,
+            category : "filters",
             favorite : false
         };
         let filters = document.querySelector(".filters-option");
