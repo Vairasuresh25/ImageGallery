@@ -307,6 +307,12 @@ document.querySelector(".save").addEventListener("click",async ()=>{
                 "Could not upload the filtered image."
             );
         }
+        let image = {
+            src : file.name,
+            name : originalImage.name,
+            category : originalImage.category,
+            favorite : false
+        };
         allImages.unshift(image);
         localStorage.setItem(user.email,JSON.stringify(allImages));
         showImages(allImages);
