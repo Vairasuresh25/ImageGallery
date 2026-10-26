@@ -186,6 +186,7 @@ function showImages(images){
                     document.querySelector(".filter-box").style.backgroundImage = `url("${imageUrl}")`;
                     let filtersBox = document.querySelectorAll(".filters div");
                     for (let box of filtersBox){
+                        document.querySelector(".save").disabled = false;
                         box.style.backgroundImage = `url("${imageUrl}")`;
                         box.addEventListener("click",()=>{
                             for (let bor of filtersBox){
@@ -255,6 +256,7 @@ function showImages(images){
         imageDiv.append(empty);
     }
 }
+document.querySelector(".save").disabled = true;
 document.querySelector(".save").addEventListener("click",async ()=>{
     let originalImage = allImages.find(image => image.name === document.querySelector(".filter-img-name").textContent);
     try {
