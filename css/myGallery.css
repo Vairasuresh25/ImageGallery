@@ -215,6 +215,16 @@ label:has(input[type="radio"]:checked){
 .images .img .fav{
     color: #62dafbff;
 }
+.images .img .edit-btn{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 24px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: white;
+}
 .images .btn-div{
     height: 40px;
     width: 100%;
