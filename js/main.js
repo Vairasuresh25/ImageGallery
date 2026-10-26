@@ -507,9 +507,9 @@ technology.addEventListener("click",()=>{
         searchEvent();
     }
 });
-let collage = document.querySelector(".collage");
+let collage = document.querySelector(".filters-option");
 collage.addEventListener("click",()=>{
-    let collageImages=allImages.filter((image)=>image.category == "collage");
+    let collageImages=allImages.filter((image)=>image.category == "filters");
     if (search.value === ""){
         showImages(collageImages);
         current = collageImages;
@@ -520,7 +520,7 @@ collage.addEventListener("click",()=>{
 });
 let other = document.querySelector(".other");
 other.addEventListener("click",()=>{
-    let otherImages=allImages.filter((image)=>image.category == "collage");
+    let otherImages=allImages.filter((image)=>image.category == "other");
     if (search.value === ""){
         showImages(otherImages);
         current = otherImages;
